@@ -19,8 +19,7 @@ extension UIColor {
             let hexColor = String(hex[start...])
             
             if hexColor.count == 6 {
-                var hexNumber: UInt32 = 0
-                Scanner(string: hexColor).scanHexInt32(&hexNumber)
+                let hexNumber = Scanner(string: hexColor).scanInt32(representation: .hexadecimal) ?? 0
                 r = CGFloat((hexNumber & 0xff0000) >> 16) / 255
                 g = CGFloat((hexNumber & 0x00ff00) >> 8) / 255
                 b = CGFloat((hexNumber & 0x0000ff)) / 255

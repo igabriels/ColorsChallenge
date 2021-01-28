@@ -32,6 +32,7 @@ extension ColorsTableViewCell: Configurable {
         if let viewModel = object as? CollectionViewViewModel {
             collectionView.dataSource = viewModel
             collectionView.delegate = viewModel
+            collectionView.contentOffset = .zero
         }
     }
 }

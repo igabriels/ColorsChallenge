@@ -7,12 +7,18 @@
 
 import UIKit
 
+protocol CollectionViewViewModelDelegate: class {
+    func collectionViewViewModel(_ viewModel: CollectionViewViewModel, didSelectColorSquare colorSquare: ColorSquare)
+}
+
 class CollectionViewViewModel: NSObject {
     
+    weak var delegate: CollectionViewViewModelDelegate? = nil
     private let dataSource: [ColorSquare]
     
-    init(items: [ColorSquare]) {
+    init(items: [ColorSquare], delegate: CollectionViewViewModelDelegate? = nil) {
         self.dataSource = items
+        self.delegate = delegate
     }
 }
 
@@ -38,6 +44,6 @@ extension CollectionViewViewModel: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        delegate?.collectionViewViewModel(self, didSelectColorSquare: dataSource[indexPath.row]) 
     }
 }

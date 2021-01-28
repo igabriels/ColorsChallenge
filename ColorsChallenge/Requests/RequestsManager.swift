@@ -23,8 +23,6 @@ class RequestsManager {
             return nil
         }
         
-        print(urlRequest)
-        
         let sessionTask = RequestsManager.defaultSession.dataTask(with: urlRequest) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let d = data else {
