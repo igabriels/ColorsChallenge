@@ -13,10 +13,12 @@ class ColorSquareCollectionViewCell: UICollectionViewCell {
 }
 
 extension ColorSquareCollectionViewCell: Configurable {
-    static var size: CGSize { CGSize(width: 100.0, height: 84.0) }
+    static var size: CGSize { CGSize(width: 100.0, height: 100.0) }
     
     func configure(with object: Any?) {
-        valueLabel.text = "\((arc4random()%101)/100)"
-        colorView.backgroundColor = Bool.random() ? .red : .green
+        if let item = object as? ColorSquare {
+            valueLabel.text = "\(item.value)"
+            colorView.backgroundColor = item.color
+        }
     }
 }

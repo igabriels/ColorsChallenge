@@ -20,6 +20,10 @@
 		4FEDF69925BFC18D0028EC56 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDF69825BFC18D0028EC56 /* Configurable.swift */; };
 		4FEDF69C25BFC2A40028EC56 /* TypeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDF69B25BFC2A40028EC56 /* TypeName.swift */; };
 		4FEDF6A025BFC3BF0028EC56 /* ColorSquareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDF69F25BFC3BF0028EC56 /* ColorSquareCollectionViewCell.swift */; };
+		4FEDF6A325C0F9B30028EC56 /* UIColor+FromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDF6A225C0F9B30028EC56 /* UIColor+FromHex.swift */; };
+		4FEDF6A625C0FC570028EC56 /* RequestsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDF6A525C0FC570028EC56 /* RequestsManager.swift */; };
+		4FEDF6AC25C0FD500028EC56 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDF6AB25C0FD500028EC56 /* APIError.swift */; };
+		4FEDF6B025C0FDE60028EC56 /* HomeRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDF6AF25C0FDE60028EC56 /* HomeRequests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		4FEDF69825BFC18D0028EC56 /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		4FEDF69B25BFC2A40028EC56 /* TypeName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeName.swift; sourceTree = "<group>"; };
 		4FEDF69F25BFC3BF0028EC56 /* ColorSquareCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSquareCollectionViewCell.swift; sourceTree = "<group>"; };
+		4FEDF6A225C0F9B30028EC56 /* UIColor+FromHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+FromHex.swift"; sourceTree = "<group>"; };
+		4FEDF6A525C0FC570028EC56 /* RequestsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsManager.swift; sourceTree = "<group>"; };
+		4FEDF6AB25C0FD500028EC56 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		4FEDF6AF25C0FDE60028EC56 /* HomeRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRequests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,18 +107,17 @@
 			children = (
 				4FEDF69B25BFC2A40028EC56 /* TypeName.swift */,
 				4FEDF69825BFC18D0028EC56 /* Configurable.swift */,
-				4FEDF67425BFB3590028EC56 /* Requests */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		4FEDF67425BFB3590028EC56 /* Requests */ = {
+		4FEDF67425BFB3590028EC56 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				4FEDF67525BFB3590028EC56 /* URLRequestConvertible.swift */,
 				4FEDF67625BFB3590028EC56 /* URLEncoding.swift */,
 			);
-			path = Requests;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		4FEDF67725BFB3590028EC56 /* App Delegate */ = {
@@ -140,6 +147,11 @@
 		4FEDF67B25BFB3590028EC56 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				4FEDF6AE25C0FDCC0028EC56 /* Routers */,
+				4FEDF6AA25C0FD440028EC56 /* Structs */,
+				4FEDF6A925C0FC9F0028EC56 /* Enums */,
+				4FEDF67425BFB3590028EC56 /* Protocols */,
+				4FEDF6A525C0FC570028EC56 /* RequestsManager.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -154,6 +166,7 @@
 		4FEDF67D25BFB3590028EC56 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4FEDF6A225C0F9B30028EC56 /* UIColor+FromHex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -161,7 +174,6 @@
 		4FEDF68425BFB95B0028EC56 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				4FEDF68525BFB95B0028EC56 /* HTTPMethod.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -222,6 +234,30 @@
 				4FEDF69225BFC0C10028EC56 /* CollectionViewViewModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		4FEDF6A925C0FC9F0028EC56 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				4FEDF68525BFB95B0028EC56 /* HTTPMethod.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		4FEDF6AA25C0FD440028EC56 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				4FEDF6AB25C0FD500028EC56 /* APIError.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
+		4FEDF6AE25C0FDCC0028EC56 /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				4FEDF6AF25C0FDE60028EC56 /* HomeRequests.swift */,
+			);
+			path = Routers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,14 +332,18 @@
 			files = (
 				4FEDF68F25BFC0950028EC56 /* HomeViewController.swift in Sources */,
 				4FEDF69625BFC1710028EC56 /* ColorsTableViewCell.swift in Sources */,
+				4FEDF6B025C0FDE60028EC56 /* HomeRequests.swift in Sources */,
 				4FEDF69325BFC0C10028EC56 /* CollectionViewViewModel.swift in Sources */,
+				4FEDF6A625C0FC570028EC56 /* RequestsManager.swift in Sources */,
 				4FEDF6A025BFC3BF0028EC56 /* ColorSquareCollectionViewCell.swift in Sources */,
 				4FEDF68625BFB95B0028EC56 /* HTTPMethod.swift in Sources */,
 				4FEDF68025BFB3590028EC56 /* AppDelegate.swift in Sources */,
 				4FEDF67F25BFB3590028EC56 /* URLEncoding.swift in Sources */,
 				4FEDF69925BFC18D0028EC56 /* Configurable.swift in Sources */,
+				4FEDF6A325C0F9B30028EC56 /* UIColor+FromHex.swift in Sources */,
 				4FEDF67E25BFB3590028EC56 /* URLRequestConvertible.swift in Sources */,
 				4FEDF69C25BFC2A40028EC56 /* TypeName.swift in Sources */,
+				4FEDF6AC25C0FD500028EC56 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

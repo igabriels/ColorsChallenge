@@ -8,31 +8,36 @@
 import UIKit
 
 class CollectionViewViewModel: NSObject {
-
+    
+    private let dataSource: [ColorSquare]
+    
+    init(items: [ColorSquare]) {
+        self.dataSource = items
+    }
 }
 
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
 
 extension CollectionViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        dataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorSquareCollectionViewCell.typeName, for: indexPath) as! ColorSquareCollectionViewCell
         
+        cell.configure(with: dataSource[indexPath.row])
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return ColorSquareCollectionViewCell.size
+        let item = dataSource[indexPath.row]
+        return CGSize(width: ColorSquareCollectionViewCell.size.width - (ColorSquareCollectionViewCell.size.width * CGFloat(item.width)),
+                      height: ColorSquareCollectionViewCell.size.height - (ColorSquareCollectionViewCell.size.height * CGFloat(item.height)))
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        .zero
-//    }
 }
