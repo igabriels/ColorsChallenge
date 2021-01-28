@@ -45,7 +45,7 @@ extension GameResultsViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped(_:)))
         
         squareView.isHidden = winner.name == "Numbers"
-        squareView.backgroundColor = .red
+        squareView.backgroundColor = UIColor(hex: winner.hexColor)
         winnerLabel.text = "\(winner.name) Wins!"
         
         for (index, item) in resultsArray.enumerated() {

@@ -8,26 +8,26 @@
 import UIKit
 
 enum SquareType: String, CaseIterable {
+    case numeric = "Numeric"
     case red = "#FF0000"
     case green = "#00FF00"
     case blue = "#0000FF"
-    case unknown = "#000000"
     
     var index: Int {
         switch self {
-            case .red: return 0
-            case .green: return 1
-            case .blue: return 2
-            case .unknown: return Int(Int.Magnitude.max)
+            case .numeric: return 0
+            case .red: return 1
+            case .green: return 2
+            case .blue: return 3
         }
     }
     
     var name: String {
         switch self {
+            case .numeric: return "Numbers"
             case .red: return "Red"
             case .green: return "Green"
             case .blue: return "Blue"
-            case .unknown: return "Unknown"
         }
     }
 }
@@ -43,7 +43,7 @@ struct ColorSquare: Codable {
     }
     
     var type: SquareType {
-        return SquareType(rawValue: hexColor) ?? .unknown
+        return SquareType(rawValue: hexColor) ?? .numeric
     }
     
     enum CodingKeys: String, CodingKey {
@@ -52,10 +52,15 @@ struct ColorSquare: Codable {
         case width = "width"
         case height = "height"
     }
+    
+    static func createSquare(type: SquareType, value: Double = 0.0) -> ColorSquare {
+        return ColorSquare(hexColor: type.rawValue, value: value, width: 0.0, height: 0.0)
+    }
 }
 
 struct ResultSquare {
     let name: String
+    var hexColor: String = ""
     var quantity: Double = 0.0
 }
 
@@ -172,60 +177,16 @@ extension HomeViewController: CollectionViewViewModelDelegate {
         var newSelection = selectionsArray
         newSelection.append(colorSquare)
         if newSelection.count == 5 {
-//            let numericCount = ResultSquare(name: "Numbers", quantity: newSelection.map({ $0.value }).reduce(0, +))
-//            let redCount = ResultSquare(name: "Red", quantity: Double(newSelection.filter({ $0.type == .red }).count))
-//            let greenCount = ResultSquare(name: "Green", quantity: Double(newSelection.filter({ $0.type == .green }).count))
-//            let blueCount = ResultSquare(name: "Blue", quantity: Double(newSelection.filter({ $0.type == .blue }).count))
-            
-            let resultsArray = determineWinnerPlaces(fromItems: newSelection)
-            
-            print(resultsArray)
+            let resultsArray = BusinessLogicManager.shared.determineWinnerPlaces3(fromItems: newSelection)
             
             let viewController = GameResultsViewController.instantiate(resultsArray: resultsArray)
             let navigationController = UINavigationController(rootViewController: viewController)
             present(navigationController, animated: true) {
                 self.navigationController?.popToRootViewController(animated: false)
             }
-            
         } else {
             let homeViewController = HomeViewController.instantiate(previousSelections: newSelection)
             navigationController?.pushViewController(homeViewController, animated: true)
         }
-    }
-    
-    func determineWinnerPlaces(fromItems itemsArray: [ColorSquare]) -> [ResultSquare] {
-        var numericCount = ResultSquare(name: "Numbers")
-        var colorsCount: [ResultSquare] = []
-        for squareType in SquareType.allCases {
-            colorsCount.append(ResultSquare(name: squareType.name))
-        }
-        var redCount = ResultSquare(name: "Red")
-        var greenCount = ResultSquare(name: "Green")
-        var blueCount = ResultSquare(name: "Blue")
-        
-        for item in itemsArray {
-            defer {
-                numericCount.quantity += item.value
-            }
-            
-            colorsCount[item.type.index].quantity += 1.0
-            numericCount.quantity += item.value
-//            switch item.type {
-//                case .red:
-//                case .green: greenCount.quantity += 1.0
-//                case .blue: blueCount.quantity += 1.0
-//                default: print("Not a color")
-//            }
-        }
-        
-        
-//        let numericCount = ResultSquare(name: "Numbers", quantity: itemsArray.map({ $0.value }).reduce(0, +))
-//        let redCount = ResultSquare(name: "Red", quantity: Double(itemsArray.filter({ $0.type == .red }).count))
-//        let greenCount = ResultSquare(name: "Green", quantity: Double(itemsArray.filter({ $0.type == .green }).count))
-//        let blueCount = ResultSquare(name: "Blue", quantity: Double(itemsArray.filter({ $0.type == .blue }).count))
-        var resultsArray = [numericCount]
-        resultsArray.append(contentsOf: colorsCount)
-        resultsArray.sort(by: { $0.quantity > $1.quantity })
-        return resultsArray
     }
 }

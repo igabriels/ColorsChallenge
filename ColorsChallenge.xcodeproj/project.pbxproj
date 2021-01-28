@@ -26,7 +26,19 @@
 		4FEDF6B025C0FDE60028EC56 /* HomeRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDF6AF25C0FDE60028EC56 /* HomeRequests.swift */; };
 		4FEDF6B325C24AEA0028EC56 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDF6B225C24AEA0028EC56 /* LoadingTableViewCell.swift */; };
 		4FEDF6B625C2572C0028EC56 /* GameResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDF6B525C2572C0028EC56 /* GameResultsViewController.swift */; };
+		4FEDF6C925C281E40028EC56 /* BusinessLogicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDF6C825C281E40028EC56 /* BusinessLogicManager.swift */; };
+		4FEDF6CD25C2878A0028EC56 /* BusinessLogicManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDF6CC25C2878A0028EC56 /* BusinessLogicManagerTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4FEDF6C125C281BB0028EC56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FEDF65125BFB2460028EC56 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4FEDF65825BFB2460028EC56;
+			remoteInfo = ColorsChallenge;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4FEDF65925BFB2460028EC56 /* ColorsChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorsChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,10 +62,21 @@
 		4FEDF6AF25C0FDE60028EC56 /* HomeRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRequests.swift; sourceTree = "<group>"; };
 		4FEDF6B225C24AEA0028EC56 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
 		4FEDF6B525C2572C0028EC56 /* GameResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultsViewController.swift; sourceTree = "<group>"; };
+		4FEDF6BC25C281BB0028EC56 /* ColorsChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorsChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FEDF6C025C281BB0028EC56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FEDF6C825C281E40028EC56 /* BusinessLogicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessLogicManager.swift; sourceTree = "<group>"; };
+		4FEDF6CC25C2878A0028EC56 /* BusinessLogicManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessLogicManagerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4FEDF65625BFB2460028EC56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FEDF6B925C281BB0028EC56 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -67,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				4FEDF65B25BFB2460028EC56 /* ColorsChallenge */,
+				4FEDF6BD25C281BB0028EC56 /* ColorsChallengeTests */,
 				4FEDF65A25BFB2460028EC56 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				4FEDF65925BFB2460028EC56 /* ColorsChallenge.app */,
+				4FEDF6BC25C281BB0028EC56 /* ColorsChallengeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,6 +127,7 @@
 		4FEDF67225BFB3590028EC56 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				4FEDF6C825C281E40028EC56 /* BusinessLogicManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -266,6 +292,15 @@
 			path = Routers;
 			sourceTree = "<group>";
 		};
+		4FEDF6BD25C281BB0028EC56 /* ColorsChallengeTests */ = {
+			isa = PBXGroup;
+			children = (
+				4FEDF6C025C281BB0028EC56 /* Info.plist */,
+				4FEDF6CC25C2878A0028EC56 /* BusinessLogicManagerTests.swift */,
+			);
+			path = ColorsChallengeTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -286,6 +321,24 @@
 			productReference = 4FEDF65925BFB2460028EC56 /* ColorsChallenge.app */;
 			productType = "com.apple.product-type.application";
 		};
+		4FEDF6BB25C281BB0028EC56 /* ColorsChallengeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FEDF6C325C281BB0028EC56 /* Build configuration list for PBXNativeTarget "ColorsChallengeTests" */;
+			buildPhases = (
+				4FEDF6B825C281BB0028EC56 /* Sources */,
+				4FEDF6B925C281BB0028EC56 /* Frameworks */,
+				4FEDF6BA25C281BB0028EC56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4FEDF6C225C281BB0028EC56 /* PBXTargetDependency */,
+			);
+			name = ColorsChallengeTests;
+			productName = ColorsChallengeTests;
+			productReference = 4FEDF6BC25C281BB0028EC56 /* ColorsChallengeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -297,6 +350,10 @@
 				TargetAttributes = {
 					4FEDF65825BFB2460028EC56 = {
 						CreatedOnToolsVersion = 12.2;
+					};
+					4FEDF6BB25C281BB0028EC56 = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 4FEDF65825BFB2460028EC56;
 					};
 				};
 			};
@@ -314,6 +371,7 @@
 			projectRoot = "";
 			targets = (
 				4FEDF65825BFB2460028EC56 /* ColorsChallenge */,
+				4FEDF6BB25C281BB0028EC56 /* ColorsChallengeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -326,6 +384,13 @@
 				4FEDF66925BFB2480028EC56 /* LaunchScreen.storyboard in Resources */,
 				4FEDF66625BFB2480028EC56 /* Assets.xcassets in Resources */,
 				4FEDF66425BFB2460028EC56 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FEDF6BA25C281BB0028EC56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +413,7 @@
 				4FEDF68025BFB3590028EC56 /* AppDelegate.swift in Sources */,
 				4FEDF67F25BFB3590028EC56 /* URLEncoding.swift in Sources */,
 				4FEDF69925BFC18D0028EC56 /* Configurable.swift in Sources */,
+				4FEDF6C925C281E40028EC56 /* BusinessLogicManager.swift in Sources */,
 				4FEDF6A325C0F9B30028EC56 /* UIColor+FromHex.swift in Sources */,
 				4FEDF67E25BFB3590028EC56 /* URLRequestConvertible.swift in Sources */,
 				4FEDF69C25BFC2A40028EC56 /* TypeName.swift in Sources */,
@@ -355,7 +421,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4FEDF6B825C281BB0028EC56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FEDF6CD25C2878A0028EC56 /* BusinessLogicManagerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4FEDF6C225C281BB0028EC56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4FEDF65825BFB2460028EC56 /* ColorsChallenge */;
+			targetProxy = 4FEDF6C125C281BB0028EC56 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4FEDF66225BFB2460028EC56 /* Main.storyboard */ = {
@@ -533,6 +615,46 @@
 			};
 			name = Release;
 		};
+		4FEDF6C425C281BB0028EC56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FG2WSVLJ4Q;
+				INFOPLIST_FILE = ColorsChallengeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.symmetryapps.ColorsChallengeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ColorsChallenge.app/ColorsChallenge";
+			};
+			name = Debug;
+		};
+		4FEDF6C525C281BB0028EC56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FG2WSVLJ4Q;
+				INFOPLIST_FILE = ColorsChallengeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.symmetryapps.ColorsChallengeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ColorsChallenge.app/ColorsChallenge";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -550,6 +672,15 @@
 			buildConfigurations = (
 				4FEDF66E25BFB2480028EC56 /* Debug */,
 				4FEDF66F25BFB2480028EC56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4FEDF6C325C281BB0028EC56 /* Build configuration list for PBXNativeTarget "ColorsChallengeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FEDF6C425C281BB0028EC56 /* Debug */,
+				4FEDF6C525C281BB0028EC56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
