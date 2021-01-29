@@ -28,6 +28,15 @@
 		4FEDF6B625C2572C0028EC56 /* GameResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDF6B525C2572C0028EC56 /* GameResultsViewController.swift */; };
 		4FEDF6C925C281E40028EC56 /* BusinessLogicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDF6C825C281E40028EC56 /* BusinessLogicManager.swift */; };
 		4FEDF6CD25C2878A0028EC56 /* BusinessLogicManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDF6CC25C2878A0028EC56 /* BusinessLogicManagerTests.swift */; };
+		4FF92CCB25C31F2A00DD6343 /* SquareType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF92CCA25C31F2A00DD6343 /* SquareType.swift */; };
+		4FF92CCF25C31F4800DD6343 /* ColorSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF92CCE25C31F4800DD6343 /* ColorSquare.swift */; };
+		4FF92CD325C31F7B00DD6343 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF92CD225C31F7B00DD6343 /* UIView+Helpers.swift */; };
+		4FF92CD725C3243C00DD6343 /* ResultsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF92CD625C3243C00DD6343 /* ResultsListViewController.swift */; };
+		4FF92CDB25C3245D00DD6343 /* ResultsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF92CDA25C3245D00DD6343 /* ResultsListTableViewCell.swift */; };
+		4FF92CDF25C336F300DD6343 /* ResultSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF92CDE25C336F300DD6343 /* ResultSquare.swift */; };
+		4FF92CE525C3375800DD6343 /* ColorsChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FF92CE325C3375800DD6343 /* ColorsChallenge.xcdatamodeld */; };
+		4FF92CE925C353DD00DD6343 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF92CE825C353DD00DD6343 /* CoreDataStack.swift */; };
+		4FF92CED25C3558D00DD6343 /* CoreDataAccessors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF92CEC25C3558D00DD6343 /* CoreDataAccessors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +75,15 @@
 		4FEDF6C025C281BB0028EC56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FEDF6C825C281E40028EC56 /* BusinessLogicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessLogicManager.swift; sourceTree = "<group>"; };
 		4FEDF6CC25C2878A0028EC56 /* BusinessLogicManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessLogicManagerTests.swift; sourceTree = "<group>"; };
+		4FF92CCA25C31F2A00DD6343 /* SquareType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareType.swift; sourceTree = "<group>"; };
+		4FF92CCE25C31F4800DD6343 /* ColorSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSquare.swift; sourceTree = "<group>"; };
+		4FF92CD225C31F7B00DD6343 /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
+		4FF92CD625C3243C00DD6343 /* ResultsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsListViewController.swift; sourceTree = "<group>"; };
+		4FF92CDA25C3245D00DD6343 /* ResultsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsListTableViewCell.swift; sourceTree = "<group>"; };
+		4FF92CDE25C336F300DD6343 /* ResultSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSquare.swift; sourceTree = "<group>"; };
+		4FF92CE425C3375800DD6343 /* ColorsChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ColorsChallenge.xcdatamodel; sourceTree = "<group>"; };
+		4FF92CE825C353DD00DD6343 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		4FF92CEC25C3558D00DD6343 /* CoreDataAccessors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAccessors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +125,7 @@
 		4FEDF65B25BFB2460028EC56 /* ColorsChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				4FF92CE225C3373E00DD6343 /* Core Data */,
 				4FEDF67725BFB3590028EC56 /* App Delegate */,
 				4FEDF67925BFB3590028EC56 /* Constants */,
 				4FEDF67D25BFB3590028EC56 /* Extensions */,
@@ -197,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				4FEDF6A225C0F9B30028EC56 /* UIColor+FromHex.swift */,
+				4FF92CD225C31F7B00DD6343 /* UIView+Helpers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -204,6 +224,7 @@
 		4FEDF68425BFB95B0028EC56 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				4FF92CCA25C31F2A00DD6343 /* SquareType.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -249,6 +270,7 @@
 		4FEDF68C25BFC0820028EC56 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				4FF92CDA25C3245D00DD6343 /* ResultsListTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -256,6 +278,7 @@
 		4FEDF68D25BFC0820028EC56 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4FF92CD625C3243C00DD6343 /* ResultsListViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -264,6 +287,8 @@
 			isa = PBXGroup;
 			children = (
 				4FEDF69225BFC0C10028EC56 /* CollectionViewViewModel.swift */,
+				4FF92CCE25C31F4800DD6343 /* ColorSquare.swift */,
+				4FF92CDE25C336F300DD6343 /* ResultSquare.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -299,6 +324,16 @@
 				4FEDF6CC25C2878A0028EC56 /* BusinessLogicManagerTests.swift */,
 			);
 			path = ColorsChallengeTests;
+			sourceTree = "<group>";
+		};
+		4FF92CE225C3373E00DD6343 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				4FF92CE825C353DD00DD6343 /* CoreDataStack.swift */,
+				4FF92CEC25C3558D00DD6343 /* CoreDataAccessors.swift */,
+				4FF92CE325C3375800DD6343 /* ColorsChallenge.xcdatamodeld */,
+			);
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,19 +438,28 @@
 			files = (
 				4FEDF68F25BFC0950028EC56 /* HomeViewController.swift in Sources */,
 				4FEDF69625BFC1710028EC56 /* ColorsTableViewCell.swift in Sources */,
+				4FF92CDB25C3245D00DD6343 /* ResultsListTableViewCell.swift in Sources */,
 				4FEDF6B025C0FDE60028EC56 /* HomeRequests.swift in Sources */,
 				4FEDF69325BFC0C10028EC56 /* CollectionViewViewModel.swift in Sources */,
 				4FEDF6A625C0FC570028EC56 /* RequestsManager.swift in Sources */,
 				4FEDF6B625C2572C0028EC56 /* GameResultsViewController.swift in Sources */,
+				4FF92CCF25C31F4800DD6343 /* ColorSquare.swift in Sources */,
 				4FEDF6B325C24AEA0028EC56 /* LoadingTableViewCell.swift in Sources */,
+				4FF92CE525C3375800DD6343 /* ColorsChallenge.xcdatamodeld in Sources */,
+				4FF92CDF25C336F300DD6343 /* ResultSquare.swift in Sources */,
 				4FEDF6A025BFC3BF0028EC56 /* ColorSquareCollectionViewCell.swift in Sources */,
 				4FEDF68625BFB95B0028EC56 /* HTTPMethod.swift in Sources */,
+				4FF92CD725C3243C00DD6343 /* ResultsListViewController.swift in Sources */,
+				4FF92CD325C31F7B00DD6343 /* UIView+Helpers.swift in Sources */,
 				4FEDF68025BFB3590028EC56 /* AppDelegate.swift in Sources */,
+				4FF92CCB25C31F2A00DD6343 /* SquareType.swift in Sources */,
 				4FEDF67F25BFB3590028EC56 /* URLEncoding.swift in Sources */,
 				4FEDF69925BFC18D0028EC56 /* Configurable.swift in Sources */,
 				4FEDF6C925C281E40028EC56 /* BusinessLogicManager.swift in Sources */,
+				4FF92CE925C353DD00DD6343 /* CoreDataStack.swift in Sources */,
 				4FEDF6A325C0F9B30028EC56 /* UIColor+FromHex.swift in Sources */,
 				4FEDF67E25BFB3590028EC56 /* URLRequestConvertible.swift in Sources */,
+				4FF92CED25C3558D00DD6343 /* CoreDataAccessors.swift in Sources */,
 				4FEDF69C25BFC2A40028EC56 /* TypeName.swift in Sources */,
 				4FEDF6AC25C0FD500028EC56 /* APIError.swift in Sources */,
 			);
@@ -686,6 +730,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4FF92CE325C3375800DD6343 /* ColorsChallenge.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4FF92CE425C3375800DD6343 /* ColorsChallenge.xcdatamodel */,
+			);
+			currentVersion = 4FF92CE425C3375800DD6343 /* ColorsChallenge.xcdatamodel */;
+			path = ColorsChallenge.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4FEDF65125BFB2460028EC56 /* Project object */;
 }

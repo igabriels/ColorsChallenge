@@ -7,63 +7,6 @@
 
 import UIKit
 
-enum SquareType: String, CaseIterable {
-    case numeric = "Numeric"
-    case red = "#FF0000"
-    case green = "#00FF00"
-    case blue = "#0000FF"
-    
-    var index: Int {
-        switch self {
-            case .numeric: return 0
-            case .red: return 1
-            case .green: return 2
-            case .blue: return 3
-        }
-    }
-    
-    var name: String {
-        switch self {
-            case .numeric: return "Numbers"
-            case .red: return "Red"
-            case .green: return "Green"
-            case .blue: return "Blue"
-        }
-    }
-}
-
-struct ColorSquare: Codable {
-    let hexColor: String
-    let value: Double
-    let width: Double
-    let height: Double
-    
-    var color: UIColor {
-        return UIColor(hex: hexColor)
-    }
-    
-    var type: SquareType {
-        return SquareType(rawValue: hexColor) ?? .numeric
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case hexColor = "color"
-        case value = "value"
-        case width = "width"
-        case height = "height"
-    }
-    
-    static func createSquare(type: SquareType, value: Double = 0.0) -> ColorSquare {
-        return ColorSquare(hexColor: type.rawValue, value: value, width: 0.0, height: 0.0)
-    }
-}
-
-struct ResultSquare {
-    let name: String
-    var hexColor: String = ""
-    var quantity: Double = 0.0
-}
-
 class HomeViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
@@ -92,7 +35,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         _initialConfigurations()
-        requestColorsList()
+        requestColorsList(showLoadingIndicator: true)
     }
 }
 
@@ -103,6 +46,8 @@ extension HomeViewController {
         if selectionsArray.count == 0 {
             NotificationCenter.default.addObserver(self, selector: #selector(shouldReloadColorsList), name: NSNotification.Name("ShouldReloadColorsList"), object: nil)
         }
+        
+        
     }
 }
 
@@ -116,11 +61,15 @@ extension HomeViewController {
     @objc private func shouldReloadColorsList() {
         viewModels.removeAll()
         tableView.reloadData()
-        requestColorsList()
+        requestColorsList(showLoadingIndicator: true)
     }
     
-    private func requestColorsList() {
+    private func requestColorsList(showLoadingIndicator: Bool = false) {
+        if showLoadingIndicator {
+            view.showLoadingView()
+        }
         RequestsManager.request(HomeRequests.getColorsList) { [unowned self] (data) in
+            self.view.removeLoadingView()
             self.isLoadingMore = false
             guard let sectionsArray = try? JSONDecoder().decode([[ColorSquare]].self, from: data) else {
                 return
@@ -131,6 +80,7 @@ extension HomeViewController {
             }
             self.tableView.reloadData()
         } failure: { (error) in
+            self.view.removeLoadingView()
             self.isLoadingMore = true
             print(error)
         }
