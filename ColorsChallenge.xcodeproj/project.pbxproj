@@ -37,6 +37,7 @@
 		4FF92CE525C3375800DD6343 /* ColorsChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FF92CE325C3375800DD6343 /* ColorsChallenge.xcdatamodeld */; };
 		4FF92CE925C353DD00DD6343 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF92CE825C353DD00DD6343 /* CoreDataStack.swift */; };
 		4FF92CED25C3558D00DD6343 /* CoreDataAccessors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF92CEC25C3558D00DD6343 /* CoreDataAccessors.swift */; };
+		4FF92D0825C3D67800DD6343 /* NotificationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF92D0725C3D67800DD6343 /* NotificationConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		4FF92CE425C3375800DD6343 /* ColorsChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ColorsChallenge.xcdatamodel; sourceTree = "<group>"; };
 		4FF92CE825C353DD00DD6343 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		4FF92CEC25C3558D00DD6343 /* CoreDataAccessors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAccessors.swift; sourceTree = "<group>"; };
+		4FF92D0725C3D67800DD6343 /* NotificationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 		4FEDF67925BFB3590028EC56 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				4FF92D0725C3D67800DD6343 /* NotificationConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				4FEDF6A325C0F9B30028EC56 /* UIColor+FromHex.swift in Sources */,
 				4FEDF67E25BFB3590028EC56 /* URLRequestConvertible.swift in Sources */,
 				4FF92CED25C3558D00DD6343 /* CoreDataAccessors.swift in Sources */,
+				4FF92D0825C3D67800DD6343 /* NotificationConstants.swift in Sources */,
 				4FEDF69C25BFC2A40028EC56 /* TypeName.swift in Sources */,
 				4FEDF6AC25C0FD500028EC56 /* APIError.swift in Sources */,
 			);

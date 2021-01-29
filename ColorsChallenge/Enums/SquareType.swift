@@ -8,7 +8,7 @@
 import Foundation
 
 enum SquareType: String, CaseIterable {
-    case numeric = "Numbers"
+    case numeric = "#000000"
     case red = "#FF0000"
     case green = "#00FF00"
     case blue = "#0000FF"

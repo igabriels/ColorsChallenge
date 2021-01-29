@@ -15,6 +15,10 @@ class BusinessLogicManager: NSObject {
     }
     
     func determineWinnerPlaces1(fromItems itemsArray: [ColorSquare]) -> [ResultSquare] {
+        if itemsArray.count == 0 {
+            return []
+        }
+        
         var numericCount = ResultSquare(name: ColorSquare.NumberTypeString)
         var redCount = ResultSquare(name: ColorSquare.RedTypeString, hexColor: "#FF0000")
         var greenCount = ResultSquare(name: ColorSquare.GreenTypeString, hexColor: "#00FF00")
@@ -35,6 +39,10 @@ class BusinessLogicManager: NSObject {
     }
     
     func determineWinnerPlaces2(fromItems itemsArray: [ColorSquare]) -> [ResultSquare] {
+        if itemsArray.count == 0 {
+            return []
+        }
+        
         let numericCount = ResultSquare(name: ColorSquare.NumberTypeString, value: itemsArray.map({ $0.value }).reduce(0, +))
         let redCount = ResultSquare(name: ColorSquare.RedTypeString, hexColor: "#FF0000", value: Double(itemsArray.filter({ $0.type == .red }).count))
         let greenCount = ResultSquare(name: ColorSquare.GreenTypeString, hexColor: "#00FF00", value: Double(itemsArray.filter({ $0.type == .green }).count))

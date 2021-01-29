@@ -9,6 +9,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    private let NumberOfPicks = 5
+    
     @IBOutlet private weak var tableView: UITableView!
     
     private var selectionsArray: [ColorSquare] = []
@@ -28,7 +30,7 @@ class HomeViewController: UIViewController {
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("ShouldReloadColorsList"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NotificationConstants.ShouldReloadColorsList, object: nil)
     }
 
     override func viewDidLoad() {
@@ -44,10 +46,17 @@ class HomeViewController: UIViewController {
 extension HomeViewController {
     private func _initialConfigurations() {
         if selectionsArray.count == 0 {
-            NotificationCenter.default.addObserver(self, selector: #selector(shouldReloadColorsList), name: NSNotification.Name("ShouldReloadColorsList"), object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(shouldReloadColorsList), name: NotificationConstants.ShouldReloadColorsList, object: nil)
         }
         
-        
+        if let winning = BusinessLogicManager.shared.determineWinnerPlaces3(fromItems: selectionsArray).first {
+            let label = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: 30.0, height: 30.0))
+            let isNumbersWinning = winning.hexColor == SquareType.numeric.rawValue
+            label.textAlignment = .center
+            label.backgroundColor = isNumbersWinning ? .clear : UIColor(hex: winning.hexColor)
+            label.text = isNumbersWinning ? "2" : ""
+            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: label)
+        }
     }
 }
 
@@ -55,7 +64,7 @@ extension HomeViewController {
 
 extension HomeViewController {
     static func restartGame() {
-        NotificationCenter.default.post(name: NSNotification.Name("ShouldReloadColorsList"), object: nil)
+        NotificationCenter.default.post(name: NotificationConstants.ShouldReloadColorsList, object: nil)
     }
     
     @objc private func shouldReloadColorsList() {
@@ -126,7 +135,7 @@ extension HomeViewController: CollectionViewViewModelDelegate {
     func collectionViewViewModel(_ viewModel: CollectionViewViewModel, didSelectColorSquare colorSquare: ColorSquare) {
         var newSelection = selectionsArray
         newSelection.append(colorSquare)
-        if newSelection.count == 5 {
+        if newSelection.count == NumberOfPicks {
             let resultsArray = BusinessLogicManager.shared.determineWinnerPlaces3(fromItems: newSelection)
             
             let viewController = GameResultsViewController.instantiate(resultsArray: resultsArray)
