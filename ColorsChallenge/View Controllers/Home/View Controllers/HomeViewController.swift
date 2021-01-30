@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    private let NumberOfPicks = 5
+    private let NumberOfPicks = ConfigurationsManager.shared.numberOfRoundsPerGame
     
     @IBOutlet private weak var tableView: UITableView!
     
@@ -45,6 +45,8 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController {
     private func _initialConfigurations() {
+        tableView.isAccessibilityElement = false
+        
         if selectionsArray.count == 0 {
             NotificationCenter.default.addObserver(self, selector: #selector(shouldReloadColorsList), name: NotificationConstants.ShouldReloadColorsList, object: nil)
         }
@@ -55,6 +57,9 @@ extension HomeViewController {
             label.textAlignment = .center
             label.backgroundColor = isNumbersWinning ? .clear : UIColor(hex: winning.hexColor)
             label.text = isNumbersWinning ? "2" : ""
+            label.accessibilityIdentifier = "WinningLabel"
+            label.accessibilityLabel = "\(winning.name) is winning"
+            label.accessibilityValue = winning.name
             navigationItem.rightBarButtonItem = UIBarButtonItem(customView: label)
         }
     }
@@ -94,6 +99,10 @@ extension HomeViewController {
             print(error)
         }
     }
+    
+    func shouldShowLoaderCell(at indexPath: IndexPath) -> Bool {
+        indexPath.row == viewModels.count-1 && !ConfigurationsManager.shared.isUITesting
+    }
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
@@ -104,7 +113,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == viewModels.count-1 {
+        if shouldShowLoaderCell(at: indexPath) {
             if !isLoadingMore {
                 isLoadingMore = true
                 requestColorsList()
@@ -125,7 +134,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.row == viewModels.count-1 ? 44.0 : ColorsTableViewCell.height
+        return shouldShowLoaderCell(at: indexPath) ? 44.0 : ColorsTableViewCell.height
     }
 }
 

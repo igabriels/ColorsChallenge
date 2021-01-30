@@ -14,6 +14,12 @@ class ColorsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        
+        if let collectionView = collectionView {
+            isAccessibilityElement = false
+            accessibilityElements = [collectionView]
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

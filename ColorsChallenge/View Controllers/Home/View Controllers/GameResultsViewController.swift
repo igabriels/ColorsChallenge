@@ -44,9 +44,14 @@ extension GameResultsViewController {
         navigationItem.title = "Game finished!"
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped(_:)))
         
+        let winnerText = "\(winner.name) Wins!"
         squareView.isHidden = winner.name == ColorSquare.NumberTypeString
         squareView.backgroundColor = UIColor(hex: winner.hexColor)
-        winnerLabel.text = "\(winner.name) Wins!"
+        squareView.accessibilityLabel = winnerText
+        squareView.accessibilityValue = winner.name
+        winnerLabel.text = winnerText
+        winnerLabel.accessibilityLabel = winnerText
+        winnerLabel.accessibilityValue = winnerText
         
         for (index, item) in resultsArray.enumerated() {
             resultsLabel.text = "\(resultsLabel.text ?? "")\n\(index+1). \(item.name): \(String(format: "%.2f", item.value))"

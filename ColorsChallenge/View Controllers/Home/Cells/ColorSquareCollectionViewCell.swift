@@ -10,6 +10,12 @@ import UIKit
 class ColorSquareCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var valueLabel: UILabel!
     @IBOutlet private weak var colorView: UIView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        isAccessibilityElement = false
+    }
 }
 
 extension ColorSquareCollectionViewCell: Configurable {
@@ -17,8 +23,11 @@ extension ColorSquareCollectionViewCell: Configurable {
     
     func configure(with object: Any?) {
         if let item = object as? ColorSquare {
-            valueLabel.text = "\(item.value)"
+            let valueString = "\(item.value)"
+            valueLabel.text = valueString
+            valueLabel.accessibilityValue = valueString
             colorView.backgroundColor = item.color
+            colorView.accessibilityValue = item.type.name
         }
     }
 }
