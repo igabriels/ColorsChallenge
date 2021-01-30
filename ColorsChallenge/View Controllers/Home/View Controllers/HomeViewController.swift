@@ -100,7 +100,7 @@ extension HomeViewController {
         }
     }
     
-    func shouldShowLoaderCell(at indexPath: IndexPath) -> Bool {
+    private func shouldShowLoaderCell(at indexPath: IndexPath) -> Bool {
         indexPath.row == viewModels.count-1 && !ConfigurationsManager.shared.isUITesting
     }
 }
